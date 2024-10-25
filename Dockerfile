@@ -1,17 +1,17 @@
-# Dockerfile for a simple Python Flask app
+# Use Python Slim as a base image
 FROM python:3.9-slim
 
-# Set working directory
+# Set the working directory
 WORKDIR /app
 
-# Copy the application files
-COPY app/ /app
+# Copy the application files to the working directory
+COPY . /app
 
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose port 5000 for the application
+# Expose the port the app runs on
 EXPOSE 5000
 
-# Define the command to run the app
+# Command to run the application
 CMD ["python", "app.py"]
